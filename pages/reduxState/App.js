@@ -5,11 +5,11 @@ import TodoApp from "../../component/toDoApp/TodoApp";
 
 const App = () => {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <div>
         <TodoApp />
       </div>
-    </Provider>
+    // </Provider>
   );
 };
 
