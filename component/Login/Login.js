@@ -16,7 +16,8 @@ const Login = () => {
         {
             username: 'test123',
             password: 'test123'
-        }, {
+        },
+        {
             username: 'testusername',
             password: 'testpassword'
         },
@@ -33,7 +34,6 @@ const Login = () => {
             alert('username atau password salah')
             router.push('/Dashboard/Login')
         }
-
     };
 
     const onFinishFailed = (errorInfo) => {
