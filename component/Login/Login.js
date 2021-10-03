@@ -1,35 +1,27 @@
-import React, { useState } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd'
+import React from 'react'
+import { Form, Input, Button } from 'antd'
 import { Container, Row } from 'react-bootstrap'
 import { useRouter } from 'next/router'
+import { useSelector, useDispatch } from 'react-redux'
+import { LoginUser } from '../../redux/store/actions/UserActions'
+import styles from './Login.module.css'
 
 const Login = () => {
 
     const router = useRouter()
+    const dispatch = useDispatch()
 
-    const [isLogged, setIsLogged] = useState(false)
-    const userData = [
-        {
-            username: 'admin',
-            password: 'admin'
-        },
-        {
-            username: 'test123',
-            password: 'test123'
-        },
-        {
-            username: 'testusername',
-            password: 'testpassword'
-        },
-    ]
+    //memakai useSelector untuk mengambil state dari redux
+    const users = useSelector(state => state.UserReducer.user)
+    const isLogged = useSelector(state => state.UserReducer.auth.success)
 
+    //fungsi submit button login
     const onFinish = (values) => {
-        if (userData.find(user => user.username == values.username) != null &&
-            userData.find(user => user.password == values.password) != null) {
-            setIsLogged(!isLogged)
+        if (users.find(user => user.username == values.username) != null &&
+            users.find(user => user.password == values.password) != null) {
+            dispatch(LoginUser(isLogged))
             console.log('Success:', values);
             router.push('/Dashboard')
-
         } else {
             alert('username atau password salah')
             router.push('/Dashboard/Login')
@@ -40,14 +32,11 @@ const Login = () => {
         console.log('Failed:', errorInfo);
     };
 
-    const style = {
-        padding: "40px"
-    }
-
     return (
-        <div style={style}>
+        <div className={styles.divStyle}>
             <Container>
                 <Row>
+                    <h1 className={styles.h1Style}>LOGIN</h1>
                     <Form
                         name="basic"
                         labelCol={{
