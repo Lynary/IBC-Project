@@ -1,10 +1,14 @@
 const initialState = {
   user: [
     {
-    username: "mamat",
-    password: "garem"
-  }
-],
+      username: "mamat",
+      password: "garem"
+    },
+    {
+      username: "admin",
+      password: "admin"
+    },
+  ],
   auth: {
     success: false
   }
@@ -26,7 +30,7 @@ const UserReducer = (state = initialState, action) => {
     case "REGISTER_SUCCESS":
       return {
         ...state,
-        user: [ ...state.user, payload ]
+        user: [...state.user, payload]
       };
     default:
       return {
