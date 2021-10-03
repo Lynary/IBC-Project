@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Layout from "../../layouts/Layout";
 import { addTodo, delTodo } from "../../redux/store/actions/todoActions";
 
 const TodoApp = () => {
@@ -7,15 +8,15 @@ const TodoApp = () => {
   const dispatch = useDispatch();
   const addNewTodo = () => {
     const data = {
-      id: 3,
-      title: "This is three",
+      id: todos.length+1,
+      title: "This is "+(todos.length+1),
       complete: false,
     };
     dispatch(addTodo(data));
   };
 
   return (
-    <div>
+    <Layout>
       <h1>todo app</h1>
       <button onClick={addNewTodo}>add</button>
 
@@ -25,7 +26,7 @@ const TodoApp = () => {
           <p>{todo.title}</p>
         </div>
       ))}
-    </div>
+    </Layout>
   );
 };
 
