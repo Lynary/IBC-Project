@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "../../layouts/Layout";
 import { addTodo, delTodo } from "../../redux/store/actions/todoActions";
 
 const TodoApp = () => {
   const todos = useSelector((state) => state.todoReducer.todos);
+  const user = useSelector((state) => state.UserReducer.user);
   const dispatch = useDispatch();
   const addNewTodo = () => {
     const data = {
@@ -14,6 +15,11 @@ const TodoApp = () => {
     };
     dispatch(addTodo(data));
   };
+
+  useEffect(() => {
+    var data = user.filter(el=>el.username=="mamat")
+    console.log(data)
+  }, [user])
 
   return (
     <Layout>
