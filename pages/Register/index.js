@@ -1,5 +1,8 @@
 import React from "react";
+import Register from "../../component/Register/Register";
 
-function Register() {}
+function RegisterIndex() {
+  return <Register />;
+}
 
-export default Register;
+export default RegisterIndex;
