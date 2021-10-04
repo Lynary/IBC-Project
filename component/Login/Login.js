@@ -24,7 +24,7 @@ const Login = () => {
             router.push('/Dashboard')
         } else {
             alert('username atau password salah')
-            router.push('/Dashboard/Login')
+            router.push('/Login')
         }
     };
 
