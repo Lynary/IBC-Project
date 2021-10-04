@@ -1,19 +1,32 @@
 import React from "react";
 import Image from 'next/image'
+import { Divider } from "antd";
 
 export default function Footer(){
     return(
-        <footer className="footer">
+      <>
+      <Divider />
+        <footer className="footer my-3" style={{width:'100%', justifyContent:'center',display:'flex',alignItems:'center'}}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://gunadarma.ac.id/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{marginRight:'1%'}}
+        >
+          Powered by {'  '}
+        </a>
+        <a
+          href="https://gunadarma.ac.id/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
           <span className="logo">
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image src="/img/logo/tesla.svg" alt="Vercel Logo"
+             width={72} height={16}
+              />
           </span>
-        </a>
+          </a>
         </footer>
+        </>
     )
 }

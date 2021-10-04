@@ -10,7 +10,8 @@ const initialState = {
     },
   ],
   auth: {
-    success: false
+    success: false,
+    username:null
   }
 };
 
@@ -20,12 +21,12 @@ const UserReducer = (state = initialState, action) => {
     case "LOGIN_SUCCESS":
       return {
         ...state,
-        auth: { ...state.auth, success: true }
+        auth: { ...state.auth, success: true,username:payload.username }
       };
     case "LOGOUT_SUCCESS":
       return {
         ...state,
-        auth: { ...state.auth, success: false }
+        auth: { ...state.auth, success: false,username:null }
       };
     case "REGISTER_SUCCESS":
       return {

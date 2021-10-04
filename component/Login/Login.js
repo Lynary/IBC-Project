@@ -14,24 +14,24 @@ const Login = () => {
     //memakai useSelector untuk mengambil state dari redux
     const users = useSelector(state => state.UserReducer.user)
     const isLogged = useSelector(state => state.UserReducer.auth.success)
-
     //fungsi submit button login
     const onFinish = (values) => {
-        if (users.find(user => user.username == values.username) != null &&
-            users.find(user => user.password == values.password) != null) {
-            dispatch(LoginUser(isLogged))
+        const{username,password} = values
+        if (users.find(user => user.username == username && user.password == password) != null){
+            dispatch(LoginUser({
+                username,
+            }))
             console.log('Success:', values);
             router.push('/Dashboard')
         } else {
             alert('username atau password salah')
-            router.push('/Dashboard/Login')
+            router.push('/Login')
         }
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
     return (
         <div className={styles.divStyle}>
             <Container>

@@ -4,10 +4,10 @@ export const LoginUser = (data) => {
       payload: data,
     };
   };
-  export const LogoutUser = (data) => {
+  export const LogoutUser = () => {
     return {
       type: "LOGOUT_SUCCESS",
-      payload: data,
+      payload: null,
     };
   };
   export const RegistUser = (data) => {
