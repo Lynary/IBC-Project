@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import { Row, Col, Divider } from "antd";
+import { Row, Col } from "antd";
 // import Sidebar from './Sidebar';
 export default function Layout(props) {
   const { children } = props;
@@ -11,7 +11,7 @@ export default function Layout(props) {
         <Col span={12}>{children}</Col>
       </Row>
       <Row justify="center" align="middle">
-        <Col span={12} offset={6}>
+        <Col span={24} flex="auto">
           <Footer />
         </Col>
       </Row>
