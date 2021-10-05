@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Layout from "../../layouts/Layout";
 import { addTodo, delTodo } from "../../redux/store/actions/todoActions";
@@ -9,17 +9,13 @@ const TodoApp = () => {
   const dispatch = useDispatch();
   const addNewTodo = () => {
     const data = {
-      id: todos.length+1,
+      key: todos.length+1,
       title: "This is "+(todos.length+1),
       complete: false,
     };
     dispatch(addTodo(data));
   };
 
-  useEffect(() => {
-    var data = user.filter(el=>el.username=="mamat")
-    console.log(data)
-  }, [user])
 
   return (
     <Layout>
@@ -27,8 +23,10 @@ const TodoApp = () => {
       <button onClick={addNewTodo}>add</button>
 
       {todos.map((todo) => (
-        <div key={todo.id}>
-          <button onClick={() => dispatch(delTodo(todo.id))}>delete</button>
+        <div 
+        key={todo.key}
+        >
+          <button onClick={() => dispatch(delTodo(todo.key))}>delete</button>
           <p>{todo.title}</p>
         </div>
       ))}
