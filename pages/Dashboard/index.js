@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Table, Button, Space, notification, Popconfirm, Form } from "antd";
@@ -10,6 +11,21 @@ const Dashboard = () => {
   const [edit, setEdit] = useState(false);
   const [record, setrecord] = useState();
   const [form] = Form.useForm();
+=======
+import React from 'react'
+import { useSelector } from 'react-redux'
+
+const index = () => {
+
+    const isLogged = useSelector(state => state.UserReducer.auth.success)
+    console.log(isLogged)
+
+    return (
+        <div>
+            Dashboard.
+        </div>
+    )
+}
 
   const addData = () => {
     setEdit(false);
