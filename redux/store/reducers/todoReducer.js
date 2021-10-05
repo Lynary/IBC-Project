@@ -10,8 +10,7 @@ const initialState = {
       key: 2,
       title: "Mens Casual Premium Slim Fit T-Shirts ",
       price: 22.3,
-      image:
-        "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      image: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
     },
     {
       key: 3,
@@ -27,8 +26,7 @@ const initialState = {
     },
     {
       key: 5,
-      title:
-        "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+      title: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
       image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
     },
@@ -48,11 +46,11 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         todos: state.todos.filter((todo) => todo.key !== payload),
       };
-      case "EDIT_DATA":
-        return {
-          ...state,
-          todos: payload,
-        };
+    case "EDIT_DATA":
+      return {
+        ...state,
+        todos: payload,
+      };
     default:
       return {
         ...state,
