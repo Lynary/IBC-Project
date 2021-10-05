@@ -8,7 +8,7 @@ export default function Layout(props) {
     <>
       <Header />
       <Row justify="center">
-        <Col span={12}>{children}</Col>
+        <Col span={18}>{children}</Col>
       </Row>
       <Row justify="center" align="middle">
         <Col span={24} flex="auto">
