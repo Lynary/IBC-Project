@@ -8,13 +8,11 @@ import { Container, Row } from "react-bootstrap";
 
 function Register() {
   const router = useRouter();
-  const dispatch = useDispatch();
   const users = useSelector((state) => state.UserReducer.user);
 
   const onFinish = (values) => {
     console.log("Success:", values);
     users.push(values);
-    dispatch(RegistUser(users));
     router.push("/Login");
     console.log(users);
   };

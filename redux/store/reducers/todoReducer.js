@@ -3,7 +3,6 @@ const initialState = {
     {
       id: 1,
       title: "title one",
-      jurusan: "TI",
       completed: false,
     },
     {
