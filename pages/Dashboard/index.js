@@ -1,5 +1,4 @@
 
-
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Table, Button, Space, notification, Popconfirm, Form } from "antd";
@@ -39,15 +38,6 @@ const DashboardIndex = () => {
   );
 };
 
-    const isLogged = useSelector(state => state.UserReducer.auth.success)
-    console.log(isLogged)
-
-    return (
-        <div>
-            Dashboard.
-        </div>
-    )
-}
 
   const addData = () => {
     setEdit(false);
@@ -61,6 +51,20 @@ const DashboardIndex = () => {
     setOpenForm(true);
   };
 
+
+  const addData = () => {
+    setEdit(false);
+    setOpenForm(true);
+  };
+
+  const editData = (record) => {
+    form.setFieldsValue(record);
+    setrecord(record);
+    setEdit(true);
+    setOpenForm(true);
+  };
+
+
   const deleteData = (record) => {
     setData(data.filter((item) => item.title !== record.title));
     notification.warning({ message: "Data berhasil dihapus", description: "" });
@@ -69,8 +73,10 @@ const DashboardIndex = () => {
   const column = [
     {
       title: "No",
+
       dataIndex: "key",
       key: "key",
+
     },
     {
       title: "Barang",
@@ -107,7 +113,9 @@ const DashboardIndex = () => {
   return (
     <Container>
       <Button onClick={addData}>Tambah Data</Button>
+
       <Table columns={column} dataSource={data} />
+
       <ModalForm
         visible={openForm}
         open={setOpenForm}
@@ -123,5 +131,7 @@ const DashboardIndex = () => {
 
 export default Dashboard;
 
+
 export default DashboardIndex;
+
 

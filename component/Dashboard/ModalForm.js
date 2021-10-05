@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Form, Input, InputNumber, Button, notification } from "antd";
 
 const ModalForm = ({ visible, open, data, setData, edit, record, form }) => {
+
 import { Modal, Form, Input, InputNumber, Button } from "antd";
 import Notif from "../shared/notification";
 import { addTodo, editTodo } from "../../redux/store/actions/todoActions";
@@ -10,6 +11,7 @@ import { useDispatch } from "react-redux";
 const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
   const formRef = React.createRef();
   const dispatch = useDispatch();
+
   const layout = {
     labelCol: { span: 4 },
     wrapperCol: { span: 16 },
@@ -17,7 +19,9 @@ const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
 
   const submitData = (values) => {
     if (!edit) {
+
       values.key = data.length + 1;
+
       try {
         setData([...data, values]);
         notification.success({
@@ -42,18 +46,24 @@ const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
           })
         );
         notification.success({
+
           message: "Data berhasil ditambahkan",
+
           description: "",
         });
       } catch {
         notification.error({
+
           message: "Data gagal ditambahkan",
+
           description: "",
         });
       }
     }
     form.resetFields();
     open(false);
+    
+
     if (edit===false) {
       values.key = data.length + 1;
       try {
@@ -89,6 +99,7 @@ const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
     <Modal
       title={edit ? "Edit Data" : "Tambah Data"}
       visible={visible}
+
       footer={null}
       onCancel={() => open(false)}
       visible={openForm}
@@ -98,6 +109,7 @@ const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
       openForm:!openForm})
     )}
       forceRender
+
     >
       <Form {...layout} onFinish={submitData} form={form}>
         <Form.Item name="title" label="Barang">
