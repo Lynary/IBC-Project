@@ -14,7 +14,6 @@ const Login = () => {
 
     //memakai useSelector untuk mengambil state dari redux
     const users = useSelector(state => state.UserReducer.user)
-    const isLogged = useSelector(state => state.UserReducer.auth.success)
     //fungsi submit button login
     const onFinish = (values) => {
         const{username,password} = values

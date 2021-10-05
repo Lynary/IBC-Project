@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Table, Button, Space, notification, Popconfirm, Form } from "antd";
@@ -11,11 +12,32 @@ const Dashboard = () => {
   const [edit, setEdit] = useState(false);
   const [record, setrecord] = useState();
   const [form] = Form.useForm();
-=======
+
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const index = () => {
+import React, { useState,useEffect } from "react";
+import { Table, Button} from "antd";
+import Head from "next/head";
+import Layout from '../../layouts/Layout'
+import Dashboard from "../../component/Dashboard";
+
+
+const DashboardIndex = () => {
+  return (
+    <>
+    
+    <Head>
+            <title>Create Next App</title>
+            <meta name="description" content="Kelompok 2 de bes ngab" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+        <Layout>
+          <Dashboard/>
+        </Layout>
+    </>
+  );
+};
 
     const isLogged = useSelector(state => state.UserReducer.auth.success)
     console.log(isLogged)
@@ -100,3 +122,6 @@ const index = () => {
 };
 
 export default Dashboard;
+
+export default DashboardIndex;
+
