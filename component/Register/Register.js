@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { RegistUser } from "../../redux/store/actions/UserActions";
 import styles from "./Register.module.css";
 import { Form, Input, Button } from "antd";
 import { Container, Row } from "react-bootstrap";
 
 function Register() {
   const router = useRouter();
-  const dispatch = useDispatch();
   const users = useSelector((state) => state.UserReducer.user);
 
   const onFinish = (values) => {
     console.log("Success:", values);
     users.push(values);
-    dispatch(RegistUser(users));
     router.push("/Login");
     console.log(users);
   };
