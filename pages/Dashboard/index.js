@@ -1,16 +1,23 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState,useEffect } from "react";
+import { Table, Button} from "antd";
+import Head from "next/head";
+import Layout from '../../layouts/Layout'
+import Dashboard from "../../component/Dashboard";
 
-const index = () => {
+const DashboardIndex = () => {
+  return (
+    <>
+    
+    <Head>
+            <title>Create Next App</title>
+            <meta name="description" content="Kelompok 2 de bes ngab" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+        <Layout>
+          <Dashboard/>
+        </Layout>
+    </>
+  );
+};
 
-    const isLogged = useSelector(state => state.UserReducer.auth.success)
-    console.log(isLogged)
-
-    return (
-        <div>
-            Dashboard.
-        </div>
-    )
-}
-
-export default index
+export default DashboardIndex;
