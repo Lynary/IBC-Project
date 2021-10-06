@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { RegistUser } from "../../redux/store/actions/UserActions";
 import styles from "./Register.module.css";
 import { Form, Input, Button } from "antd";
 import { Container, Row } from "react-bootstrap";
