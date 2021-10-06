@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useSelector,useDispatch } from "react-redux";
+import router, { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
 import { Layout, Menu } from "antd";
 import { LogoutUser } from "../redux/store/actions/UserActions";
 import Image from 'next/image'
 export default function Header() {
   const { Header } = Layout;
   const { pathname } = useRouter();
+  const router = useRouter()
   const isLogged = useSelector((state) => state.UserReducer.auth.success);
   const dispatch = useDispatch()
   const menu = [
@@ -27,6 +28,7 @@ export default function Header() {
   ];
   const Logout = () => {
     dispatch(LogoutUser())
+    router.push('/Login')
   }
   return (
     <>
@@ -39,19 +41,19 @@ export default function Header() {
         >
           <Menu.Item key="logo">
             <Image src="/img/logo/tesla.svg" alt="Vercel Logo"
-             width={72} height={16}
-              /></Menu.Item>
-          {menu.map((el) => 
+              width={72} height={16}
+            /></Menu.Item>
+          {menu.map((el) =>
             el.login ?
-            isLogged &&
-                <Menu.Item key={el.url}>
-                  <Link href={el.url}>{el.text}</Link>
-                </Menu.Item>
-                :
-                <Menu.Item key={el.url}>
-                  <Link href={el.url}>{el.text}</Link>
-                </Menu.Item>
-            )}
+              isLogged &&
+              <Menu.Item key={el.url}>
+                <Link href={el.url}>{el.text}</Link>
+              </Menu.Item>
+              :
+              <Menu.Item key={el.url}>
+                <Link href={el.url}>{el.text}</Link>
+              </Menu.Item>
+          )}
         </Menu>
         <Menu
           theme="light"

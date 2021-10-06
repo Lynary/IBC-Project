@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Form, Input, Button } from 'antd'
 import { Container, Row } from 'react-bootstrap'
@@ -13,11 +14,10 @@ const Login = () => {
 
     //memakai useSelector untuk mengambil state dari redux
     const users = useSelector(state => state.UserReducer.user)
-    const isLogged = useSelector(state => state.UserReducer.auth.success)
     //fungsi submit button login
     const onFinish = (values) => {
-        const{username,password} = values
-        if (users.find(user => user.username == username && user.password == password) != null){
+        const { username, password } = values
+        if (users.find(user => user.username == username && user.password == password) != null) {
             dispatch(LoginUser({
                 username,
             }))
