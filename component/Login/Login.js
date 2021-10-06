@@ -16,8 +16,8 @@ const Login = () => {
     const users = useSelector(state => state.UserReducer.user)
     //fungsi submit button login
     const onFinish = (values) => {
-        const{username,password} = values
-        if (users.find(user => user.username == username && user.password == password) != null){
+        const { username, password } = values
+        if (users.find(user => user.username == username && user.password == password) != null) {
             dispatch(LoginUser({
                 username,
             }))
