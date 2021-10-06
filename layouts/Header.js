@@ -6,8 +6,7 @@ import { LogoutUser } from "../redux/store/actions/UserActions";
 import Image from "next/image";
 export default function Header() {
   const { Header } = Layout;
-  const { pathname } = useRouter();
-  const router = useRouter();
+  const { pathname, push } = useRouter();
   const isLogged = useSelector((state) => state.UserReducer.auth.success);
   const dispatch = useDispatch();
   const menu = [
@@ -28,7 +27,7 @@ export default function Header() {
   ];
   const Logout = () => {
     dispatch(LogoutUser());
-    router.push("/Login");
+    push("/Login");
   };
   return (
     <>
