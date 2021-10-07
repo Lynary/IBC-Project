@@ -10,10 +10,15 @@ function Register() {
   const users = useSelector((state) => state.UserReducer.user);
 
   const onFinish = (values) => {
-    console.log("Success:", values);
-    users.push(values);
-    router.push("/Login");
-    console.log(users);
+    if (values.password == values.password2) {
+      console.log("Success:", values);
+      users.push(values);
+      router.push("/Login");
+      console.log(users);
+    } else {
+      alert("username atau password salah");
+      router.push("/Register");
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -49,7 +54,6 @@ function Register() {
                   message: "Please input your username!",
                 },
               ]}
-              //   onChange={handleChange}
             >
               <Input />
             </Form.Item>
@@ -63,7 +67,19 @@ function Register() {
                   message: "Please input your password!",
                 },
               ]}
-              //   onChange={handleChange}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item
+              label="Confirm Password"
+              name="password2"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your password!",
+                },
+              ]}
             >
               <Input.Password />
             </Form.Item>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Table, Button } from "antd";
+import React from "react";
 import Head from "next/head";
 import Layout from "../../layouts/Layout";
 import Dashboard from "../../component/Dashboard";
