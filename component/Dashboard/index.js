@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { Table, Button, Space, notification, Popconfirm, Form } from "antd";
-import { source } from "./table-config";
+import { Table, Button, Space, Popconfirm, Form } from "antd";
 import ModalForm from "./ModalForm";
 import { useSelector, useDispatch } from "react-redux";
 import Notif from "../shared/notification";
