@@ -14,7 +14,8 @@ const ModalForm = ({ openForm, setstate,data, getIndex, edit, form }) => {
 
   const submitData = (values) => {
     if (edit===false) {
-      values.key = data.length + 1;
+      const max = data.reduce((prev, current) => (prev.key > current.key) ? prev.key : current.key)
+      values.key = max + 1;
       try {
         dispatch(addTodo(values))
         Notif('success',"Data berhasil ditambahkan")
